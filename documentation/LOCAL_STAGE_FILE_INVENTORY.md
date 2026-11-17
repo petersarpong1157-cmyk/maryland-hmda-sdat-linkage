@@ -1,33 +1,38 @@
-# Local staging manifest — provenance only
+# Uploaded staging archive reconciliation — 2026-11-17
 
-On 2026-11-17 the researcher supplied the original local `RELEASE_MANIFEST.csv` plus the corresponding 243-byte `.gitignore` and 1,955-byte `README.md`. The two uploaded text files match the MD5 values recorded in the local manifest:
+The user provided `HMDA_SDAT_GitHub_Release_v1.0.0-core.zip`, a local staging archive with **15 manifest-listed files** and `RELEASE_MANIFEST.csv`.
 
-- `.gitignore`: `64dbd05331dadded9546f81c8daaf5d5`
-- `README.md`: `1848e6bf99f31c88a4219741f8461bc0`
+## Source archive integrity
+Each of the 15 archive files was checked against the **MD5 checksum supplied by the local manifest**: **15/15 matched**. The archive contained exactly those 15 files plus the manifest, no extra files.
 
-**This is NOT a checksum manifest of this GitHub commit.** GitHub's README and .gitignore have been expanded for safety and therefore will not have those MD5 hashes. The local manifest inventories **15** files, but only **three** of those files were attached in the latest upload. Do not claim GitHub has been validated against the entire manifest.
+## GitHub upload verification
+All **15 corresponding repository paths** were individually fetched from GitHub on the `main` branch: **15/15 exist**. This includes:
+- 3 R scripts (`R/`)
+- 8 aggregate CSV results (`results/`)
+- 2 local-run documentation text files (`documentation/`)
+- `README.md` and `.gitignore`
 
-## Pending local files to transfer and validate
+The original main analysis script is byte-identical to its archived version; its Git blob SHA is:
+`25db4a907ff6897e76b4c375dfafe327806454a2`.
 
-### R analysis scripts
-- `R/HMDA_SDAT_Clean_Session_Release_Gate_V4.R` — original staged MD5 `ddd6b68ebe6262d63b99d05861ae99c0`; the local user corrected its hardcoded path, so any exported version must be compared carefully
-- `R/HMDA_SDAT_Tract_Grouped_CV_and_Selection_PRINT_FIX.R` — `e5ab449d128d04174e2b18b25cb3e3b4`
-- `R/Paper1_QREF_Version2_Reproduction_IMPORT_FIXED.R` — `24758f5073365d1012b3cd5f0e2a73e8`
+The tract-grouped CV script also matches its archived Git blob SHA:
+`2983e8807055c8ba689b5425392e77e4c69ce034`.
 
-### Aggregate CSV results
-- `results/clean_cv_overall.csv` — `5fe33704f433e486bbe530e700ac0659`
-- `results/clean_Model_F_check.csv` — `a563ab80ca26676c2a7a82b523d9cf8b`
-- `results/clean_models_A_to_F.csv` — `4774513d8a0e4ee85339d209a6a8e21b`
-- `results/clean_prediction_provenance_comparison.csv` — `2f3c7d521b5b29a6adc1ea535e74a793`
-- `results/verification_R_prediction_folds.csv` — `daaee4061200fdfffe786c36d1efadd5`
-- `results/verification_R_prediction_overall.csv` — `5fe33704f433e486bbe530e700ac0659`
-- `results/verification_sample_selection.csv` — `5d3045ee8f8d2c2202a9d3fdb8b770e2`
-- `results/verification_value_bands.csv` — `db3f4f5eceeb21f2806811bddfd27f57`
+**Intentional differences from the original local staging manifest:**
+- `README.md` expanded to describe current GitHub contents and limitations.
+- `.gitignore` expanded to protect against accidental inclusion of microdata/credentials.
+- The V4 verification runner was adapted to locate the companion scripts in the repository's `R/` folder, replacing the flat-layout assumption. It requires a fresh-clone R run to revalidate that portability adjustment.
+- Some committed text/CSV files use LF line endings rather than the local Windows CRLF form; the numerical CSV contents are otherwise transcribed without modifying values.
 
-### Local documentation
-- `documentation/RELEASE_REVIEW.txt` — `9eaa35db22fe5b0071dd27859b9c7e20`
-- `documentation/session_info.txt` — `4799f9f379d0002a60d5c1f5a21bf2a9`
+Therefore, the local `RELEASE_MANIFEST.csv` is **a record of the original staging ZIP, not a byte-level checksum manifest for the current GitHub commit**. GitHub Git blob hashes must be used for repository integrity.
 
-## Release gate
+## Reproducibility and release restrictions
+The confirmed local V4 run produced 4,789 exact links, 4,167 linked regression records, Model F SE 0.008497094, and five-fold out-of-fold RMSEs 0.3177784 (HMDA only) and 0.2290860 (HMDA + SDAT).
 
-Do not create `v1.0.0-core` or archive to Zenodo until (a) the full staged payload is reviewed for microdata and private identifiers, (b) files are imported and verified at the final commit, and (c) outstanding HC3 diagnostics and the incomplete interval/subgroup/bootstrap coverage are documented. This inventory is a request for the missing content, not a public-data validation certificate.
+**Still required before a versioned release:**
+- Fresh-clone test of the updated `R/` script layout with properly prepared, separately obtained HMDA/SDAT inputs.
+- Documentation or resolution of HC3 leverage-related warnings and intermediate nonfinite SEs.
+- Confirmation that only the exact-linkage core results are covered; the interval/subgroup/bootstrap/manual deed components of the manuscript are **not** fully reproduced.
+- Owner confirmation of licensing and Zenodo integration before GitHub release archiving.
+
+**No GitHub release tag or Zenodo DOI has been created.** The repository is public.
