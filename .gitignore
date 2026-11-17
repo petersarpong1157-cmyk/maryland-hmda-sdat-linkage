@@ -1,0 +1,40 @@
+# Local R session and project files
+.Rhistory
+.RData
+.Rproj.user/
+*.Rproj
+
+# Source microdata and linkage crosswalks
+loan_purposes_1_state_MD*.csv
+SDAT_2025_Market_Sales_With_Census_Tracts.csv
+HMDA_SDAT_Exact_Bidirectional_4789.csv
+HMDA_2025_Purchase_Originated_Matching_Population_62305.csv
+HMDA_SDAT_final_analysis_ids.csv
+HMDA_SDAT_clean_run_*/
+HMDA_SDAT_public_stage_*/
+*Manual_Audit*
+*Deed*
+*.rds
+*.RDS
+
+# Private deed/case documents and temporary data
+*.pdf
+*.docx
+*.zip
+*.xlsx
+*.xls
+*.sqlite
+*.db
+*.parquet
+*.feather
+*.fst
+.DS_Store
+Thumbs.db
+
+# Credentials and local configuration
+.env
+.env.*
+*.pem
+*.key
+credentials.*
+secrets.*
