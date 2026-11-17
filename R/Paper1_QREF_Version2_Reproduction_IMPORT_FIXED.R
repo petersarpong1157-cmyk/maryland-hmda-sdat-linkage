@@ -1,6 +1,6 @@
 # ============================================================
 # Property, Mortgage, Lender, and Location Heterogeneity in the
-# Mortgage RateâProperty Value Relationship:
+# Mortgage Rate–Property Value Relationship:
 # Evidence from Linked HMDA and Assessment Data
 #
 # Author: Peter Sarpong
