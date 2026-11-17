@@ -1,0 +1,7 @@
+PUBLIC STAGING PACKAGE: NOT YET PUBLISHED
+Source clean run: HMDA_SDAT_clean_run_20261117_094606
+Release is restricted to allowlisted R code and aggregate outputs.
+DO NOT add original HMDA CSV, SDAT transaction CSV, exact-link crosswalk,
+row-level predictions, individual deeds, addresses, names, or audit records.
+Manuscript and DOI not added; update README and confirm disclosures before publishing.
+Review all output files and scripts for privacy and provenance.
