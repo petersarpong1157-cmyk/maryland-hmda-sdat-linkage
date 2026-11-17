@@ -12,8 +12,14 @@ required_packages <- c("readr", "dplyr", "tibble", "lmtest", "sandwich", "Matrix
 missing_packages <- required_packages[!vapply(required_packages, requireNamespace, logical(1), quietly=TRUE)]
 if (length(missing_packages)) stop("Missing R packages. Install first: ", paste(missing_packages, collapse=", "))
 
-main_script <- file.path(project_dir, "Paper1_QREF_Version2_Reproduction_IMPORT_FIXED.R")
-cv_script <- file.path(project_dir, "HMDA_SDAT_Tract_Grouped_CV_and_Selection_PRINT_FIX.R")
+# The public repository stores scripts under R/; older local runs used a flat directory.
+script_dir <- if (file.exists(file.path(project_dir, "R", "Paper1_QREF_Version2_Reproduction_IMPORT_FIXED.R"))) {
+  file.path(project_dir, "R")
+} else {
+  project_dir
+}
+main_script <- file.path(script_dir, "Paper1_QREF_Version2_Reproduction_IMPORT_FIXED.R")
+cv_script <- file.path(script_dir, "HMDA_SDAT_Tract_Grouped_CV_and_Selection_PRINT_FIX.R")
 sdat_source <- file.path(project_dir, "SDAT_2025_Market_Sales_With_Census_Tracts.csv")
 hmda_source <- c(file.path(project_dir,"loan_purposes_1_state_MD.csv"),
                  file.path(project_dir,"loan_purposes_1_state_MD(3).csv"))
