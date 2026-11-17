@@ -1,6 +1,6 @@
 # v1.0.0-core release checklist
 
-**Current state:** The RStudio V4 numerical gate passed locally on 2026-11-17. This GitHub repository has not yet been certified as a faithful copy of the user’s local staging directory and has not been tagged or archived.
+**Current state:** The RStudio V4 numerical gate passed locally on 2026-11-17. All 15 original staging paths now exist in GitHub, with code and aggregate numeric outputs verified against the local staging archive, allowing for documented portability and line-ending edits. No GitHub release tag or Zenodo archive exists.
 
 ## Verified in the RStudio log
 - Exact candidate pairs: 43,218; bidirectionally unique exact pairs: 4,789.
@@ -13,17 +13,17 @@
 - Local MD5 check: 15 pre-manifest files, zero changes at time checked.
 
 ## Before uploading local staging files
-- [ ] Inspect actual staged source files and each CSV for individual identifying values and accidental microdata.
+- [x] Inspect staged R scripts and aggregate CSVs for restricted filenames/identifying fields; final manual review remains recommended.
 - [ ] Confirm R scripts work from a fresh clone when the user supplies source inputs in the documented layout.
 - [ ] Keep the original, external SDAT/HMDA microdata, exact crosswalk, parcel IDs, deed records, and individual audit notes OUT of Git.
-- [ ] Compare staged files to local `RELEASE_MANIFEST.csv`, regenerating it after any content edits.
+- [x] Compare ZIP files to original 15-file manifest (15/15 MD5 match); reconcile GitHub file changes separately in `LOCAL_STAGE_FILE_INVENTORY.md`.
 - [ ] Confirm correct license and citation preferences with repository owner; do not invent either.
 - [ ] Document high-leverage HC3 warning and nonfinite intermediate SE diagnostic; the principal reported SEs are finite.
 - [ ] Clearly separate **core** results from unbundled interval matching, subgroup, bootstrap and deed corroboration.
 
 ## Before publishing a GitHub tag and Zenodo version
-- [ ] Audit the actual GitHub file tree for the intended scripts, documentation and eight aggregate CSVs.
-- [ ] Match a GitHub commit to the final inspected content; do not tag a partial staging state.
+- [x] Fetch all 15 original staging paths from GitHub and confirm three scripts, eight aggregate CSV outputs, and documentation exist.
+- [ ] Re-run portable GitHub clone with prepared source inputs, document HC3 warnings, and freeze inspected commit; do not tag before this.
 - [ ] Confirm Zenodo repository integration is enabled before creating a GitHub release.
 - [ ] Release tag: `v1.0.0-core` only after these checks.
 - [ ] Record Git commit SHA, Zenodo version DOI, release date, input source/version provenance and manuscript data/code statement.
