@@ -1,0 +1,7 @@
+# Python packages required for extended analyses
+numpy
+pandas
+scipy
+scikit-learn
+statsmodels
+patsy

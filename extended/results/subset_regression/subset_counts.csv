@@ -1,0 +1,8 @@
+metric,value
+analysis_link_pairs,4167
+late_period_pairs,1909
+late_period_competing,185
+late_period_corrob,1773
+late_period_corrob_and_competing,50
+late_period_no_competing,1724
+late_period_corrob_no_competing,1723

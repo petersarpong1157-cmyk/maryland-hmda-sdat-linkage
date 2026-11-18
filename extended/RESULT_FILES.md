@@ -1,0 +1,23 @@
+# Aggregate file inventory
+
+- extended/results/selection_and_local_stress/selection_covariate_balance.csv: 10 data rows; columns: variable, final_sample, n, mean, median, sd
+- extended/results/selection_and_local_stress/linkage_error_scenarios_replicates.csv: 200 data rows; columns: fraction_of_eligible, replicate, target_swaps, actual_swaps, pct_full_sample_swapped, beta, beta_change
+- extended/results/selection_and_local_stress/linkage_error_scenarios_summary.csv: 4 data rows; columns: fraction_of_eligible, n_repetitions, median_swaps, median_pct_full_swapped, median_beta, beta_p05, beta_p95, median_abs_beta_change
+- extended/results/selection_and_local_stress/selection_model_comparison.csv: 3 data rows; columns: analysis, n, beta_rate, adj_r2
+- extended/results/selection_and_local_stress/alternative_link_eligibility.csv: 1 data rows; columns: analysis_n, candidate_pairs, eligible_hmda, pct_full_eligible, interpretation
+- extended/results/selection_and_local_stress/selection_by_value.csv: 6 data rows; columns: value_band, n, exact_links, exact_pct, final_n, final_pct, median_value
+- extended/results/broader_stress/baseline_and_eligibility.csv: 1 data rows; columns: n, beta_A, beta_B, attenuation_pct, min_donor_count_near, median_donor_count_near, county_groups, method
+- extended/results/broader_stress/broader_error_summary.csv: 18 data rows; columns: mode, fraction_all_links, replicates, median_targeted, median_changed, beta_median, beta_p025, beta_p975
+- extended/results/broader_stress/broader_error_replicates.csv: 900 data rows; columns: mode, fraction_all_links, replicate, n_targeted, n_feature_bundles_different, beta_rate, attenuation_pct, adjusted_r2
+- extended/results/property_source_consistency/account_linkage_audit_summary.csv: 15 data rows; columns: metric, value
+- extended/results/property_source_consistency/monthly_coverage.csv: 5 data rows; columns: month, n_rows, unique_accounts, with_consideration, account_in_SDAT, same_account_date, same_account_date_price
+- extended/results/property_source_consistency/deep_audit_summary.csv: 14 data rows; columns: metric, value
+- extended/results/property_source_consistency/tract_disagreement_aggregate.csv: 12 data rows; columns: sales_county, sdat_county, same_date, pair_count
+- extended/results/property_source_consistency/price_disagreement_bands.csv: 2 data rows; columns: band, pair_count
+- extended/results/property_source_consistency/sdat_full_year_monthly_cohort.csv: 12 data rows; columns: month, n_sdat_market_sale_records
+- extended/results/candidate_ambiguity/candidate_audit_summary.csv: 17 data rows; columns: metric, value
+- extended/results/candidate_ambiguity/late_year_coverage_categories.csv: 3 data rows; columns: status, n_pairs
+- extended/results/candidate_ambiguity/linked_ambiguity_by_period.csv: 2 data rows; columns: period, n_pairs, account_date, original_account_in_sales_bin, any_sales_account_in_bin, competing_account, n_two_or_more_candidates
+- extended/results/candidate_ambiguity/linked_monthly_ambiguity.csv: 12 data rows; columns: month, regression_pairs, account_date_agreement, same_tract_midpoint_candidate, original_account_present, pair_has_competing_account, pair_has_two_or_more_candidates
+- extended/results/subset_regression/transaction_subset_regression_results.csv: 9 data rows; columns: subset, n, beta_A, beta_B, attenuation_pct, adj_r2_A, adj_r2_B, rank_A
+- extended/results/subset_regression/subset_counts.csv: 7 data rows; columns: metric, value

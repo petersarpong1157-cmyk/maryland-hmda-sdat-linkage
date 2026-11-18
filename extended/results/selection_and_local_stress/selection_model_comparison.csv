@@ -1,0 +1,4 @@
+analysis,n,beta_rate,adj_r2
+linked_A,4167,-0.08087728374691253,0.7029110240640007
+linked_A_poststratified_by_property_value,4167,-0.07373162639898966,0.6757485358933591
+full_HMDA_complete_case_A,58587,-0.036887828981837054,

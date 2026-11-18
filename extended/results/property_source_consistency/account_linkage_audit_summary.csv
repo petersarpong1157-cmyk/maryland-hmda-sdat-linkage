@@ -1,0 +1,16 @@
+metric,value
+property_sales_records,68484
+distinct_sale_accounts,65132
+sdat_records,63304
+distinct_sdat_accounts,63304
+sale_rows_with_sdat_account,24559
+unique_sale_accounts_in_sdat,23758
+sale_rows_matching_sdat_account_and_date,23917
+sale_rows_matching_sdat_account_date_consideration,23770
+sale_accounts_with_multiple_rows,3075
+sale_accounts_with_multiple_transfer_dates,2052
+duplicate_sale_account_date,1243
+missing_sales_tract,4213
+missing_sales_consideration,22988
+sdat_join_known_tract_pairs,24335
+sdat_join_tract_agreements,24302
