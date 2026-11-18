@@ -1,0 +1,38 @@
+name: Extract extended replication archive
+on:
+  push:
+    paths:
+      - '.github/workflows/extract-extended-replication.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Validate and extract research package
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from zipfile import ZipFile
+          archive = Path('HMDA_SDAT_v4.0.3_Extended_Replication_Ready_To_Upload.zip')
+          assert archive.is_file(), 'Archive missing'
+          with ZipFile(archive) as z:
+              names = z.namelist()
+              assert len(names) == 31, f'Unexpected number of files: {len(names)}'
+              assert all(n.startswith('extended/') and '..' not in Path(n).parts and not n.startswith('/') for n in names)
+              assert not Path('extended').exists(), 'Do not overwrite an existing extended folder'
+              z.extractall('.')
+          print('Extracted', len(names), 'files')
+          PY
+      - name: Commit extracted analysis files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add extended/
+          git diff --cached --quiet && exit 0
+          git commit -m "Add extracted v4.0.3 extended replication package"
+          git push
